@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>F1 Teams</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">F1 Teams</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="header">
+        <h1>Listado de equipos de la Fórmula 1 en 2024</h1>
+        <p>
+          Esto es una página donde ver los coches y los pilotos que conforman los equipos de la F1 en este mundial de 2024. Pulsando en cualquiera de estos
+          botones, podrás filtar por coches, por pilotos o volver a la lista completa.
+          Hecha por Elena Peña Crespo para la asignatura Aplicaciones Móviles, en la parte de aplicaciones híbridas, de la Universidad de Alcalá de Henares.
+        </p>
+        <div class="headerButtons">
+          <ion-button color="primary" (click)="showCars()">Coches</ion-button>
+          <ion-button color="medium" (click)="showDrivers()">Pilotos</ion-button>
+        </div>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of items">
+        <ion-card>
+          <ion-img [src]="item.imagen"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ item.nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ item.descripcion }}
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="viewItem(item)">Ver</ion-button>
+              <ion-button (click)="editItem(item)">Editar</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-right">
+              9 mins
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

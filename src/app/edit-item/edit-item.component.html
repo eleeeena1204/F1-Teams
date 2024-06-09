@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit {{ item.nombre }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input label="Nombre" [(ngModel)]="item.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea label="Descripción" [autoGrow]="true" [(ngModel)]="item.descripcion"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Tipo" justify="space-between" interface="popover" [(ngModel)]="item.tipo">
+      <ion-select-option value="coche">Coche</ion-select-option>
+      <ion-select-option value="piloto">Piloto</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div class="saveButton">
+    <ion-button (click)="save()">Guardar</ion-button>
+  </div>
+</ion-content>
